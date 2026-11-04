@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soundscape of Jerusalem</title>
+<link rel="stylesheet" href="Lab5.css">
+</head>
+<body>
+<div id="scene">
+  <div class="photo on" aria-hidden="true"></div>
+  <div class="photo" aria-hidden="true"></div>
+  <canvas id="viz"></canvas>
+</div>
+<main>
+  <h1 id="title">Jerusalem Soundscape</h1>
+  <p id="caption">Press play and move your mouse.</p>
+  <audio id="audio" src="assets/soundscape.mp3" preload="auto"></audio>
+  <div id="controls">
+    <button id="play">Play</button>
+    <input id="seek" type="range" min="0" max="100" value="0" aria-label="Seek">
+    <span id="time">0:00</span>
+    <input id="vol" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+  </div>
+  <div id="moments"></div>
+</main>
+<script src="Lab5.js"></script>
+</body>
+</html>
