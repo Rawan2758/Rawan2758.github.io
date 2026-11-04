@@ -1,13 +1,13 @@
 // ===== EDIT THESE =====
 const PLACE = "Hometown Soundscape";
 const MOMENTS = [ // time in seconds, label, caption
-  {img:"assets/photo1.jpg", t:0,  label:"Call to Prayer", text:"The call to prayer rises over the quiet night."},
-  {img:"assets/photo2.jpg", t:20, label:"To the Mosque",  text:"People walk together and get ready to pray."},
-  {img:"assets/photo3.jpg", t:38, label:"Prayer",         text:"A moment of peace and prayer."},
-  {img:"assets/photo4.jpg", t:44, label:"Market",         text:"Music drifts through the busy market."},
-  {img:"assets/photo5.jpg", t:53, label:"Children",       text:"Children laugh and play."},
-  {img:"assets/photo6.jpg", t:56, label:"Family",         text:"Family gathers and talks."},
-  {img:"assets/photo7.jpg", t:66, label:"Home",           text:"Heading back home."}
+  {img:"photo1.jpg", t:0,  label:"Call to Prayer", text:"The call to prayer rises over the quiet night."},
+  {img:"photo2.jpg", t:20, label:"To the Mosque",  text:"People walk together and get ready to pray."},
+  {img:"photo3.jpg", t:38, label:"Prayer",         text:"A moment of peace and prayer."},
+  {img:"photo4.jpg", t:44, label:"Market",         text:"Music drifts through the busy market."},
+  {img:"photo5.jpg", t:53, label:"Children",       text:"Children laugh and play."},
+  {img:"photo6.jpg", t:56, label:"Family",         text:"Family gathers and talks."},
+  {img:"photo7.jpg", t:66, label:"Home",           text:"Heading back home."}
 ];
 // ======================
 const $ = id => document.getElementById(id);
