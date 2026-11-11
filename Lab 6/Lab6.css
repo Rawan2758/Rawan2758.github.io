@@ -1,0 +1,271 @@
+:root {
+  --top: #3f8fd6;
+  --bottom: #bfe3f5;
+  --stone: #e2c9a0;
+
+  /* Fixed palette */
+  --ink: #1d1a16;
+  --olive: #5b6b3a;
+  --red: #b3202a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.1rem;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+[dir=rtl] body,
+[dir=rtl] button,
+[dir=rtl] .card,
+[dir=rtl] #panel {
+  font-family: "Amiri", serif;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+button {
+  font: inherit;
+  color: var(--ink);
+  background: #f3e8d2;
+  border: 2px solid var(--olive);
+  border-radius: 6px;
+  padding: .4rem 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #fff;
+}
+
+#sky {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(var(--top), var(--bottom));
+  transition: background 2s;
+  z-index: -3;
+}
+
+#stars {
+  position: fixed;
+  inset: 0 0 40% 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 2s;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 80px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 160px 20px, #fff, transparent),
+    radial-gradient(1px 1px at 60px 130px, #fff, transparent);
+  background-size: 200px 160px;
+}
+
+#clouds {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  left: -30vw;
+  width: 240px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .55);
+  filter: blur(14px);
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  to {
+    transform: translateX(160vw);
+  }
+}
+
+header {
+  text-align: center;
+  padding: 1.5rem 1rem .5rem;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .35);
+}
+
+.ar-name {
+  font-family: "Amiri", serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.controls {
+  display: flex;
+  gap: .6rem;
+  justify-content: center;
+  margin: .8rem 0;
+  flex-wrap: wrap;
+}
+
+#status {
+  margin: .3rem 0;
+  font-size: .95rem;
+}
+
+#info {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: .5rem 1rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card {
+  flex: 1 1 280px;
+  background: rgba(29, 26, 22, .55);
+  backdrop-filter: blur(6px);
+  border-inline-start: 6px solid var(--red);
+  padding: .8rem 1.1rem;
+}
+
+.card h3 {
+  margin: 0 0 .4rem;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: .15rem 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.row.next {
+  color: #ffd37a;
+  font-weight: 700;
+}
+
+#skyline {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42vh;
+  z-index: 1;
+}
+
+.stone,
+.wall {
+  fill: var(--stone);
+  transition: fill 2s;
+}
+
+.hill   { fill: var(--olive); opacity: .9; }
+.dark   { fill: #3a2d22; }
+.ground { fill: #6e5a43; }
+.gold   { fill: #d9a62e; }
+.silver { fill: #aeb6bd; }
+
+.site {
+  cursor: pointer;
+}
+
+.site .hit {
+  fill: transparent;
+}
+
+.site:hover,
+.site:focus-visible {
+  filter: brightness(1.2) drop-shadow(0 0 6px #fff);
+}
+
+#panel {
+  position: fixed;
+  z-index: 5;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  width: min(480px, 92vw);
+  max-height: 60vh;
+  overflow: auto;
+  background: #f3e8d2;
+  color: var(--ink);
+  padding: 1rem 1.2rem;
+  border-top: 8px solid var(--red);
+  animation: rise .25s ease-out;
+}
+
+#panel[hidden] {
+  display: none;
+}
+
+#panel img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  margin-bottom: .5rem;
+}
+
+#panel h2 {
+  margin: 0 0 .4rem;
+}
+
+#panel a {
+  color: var(--red);
+}
+
+#close {
+  position: absolute;
+  top: .4rem;
+  inset-inline-end: .4rem;
+  padding: .1rem .5rem;
+}
+
+@keyframes rise {
+  from {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+}
+
+.tatreez {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 12px;
+  z-index: 6;
+}
+
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud,
+  #panel {
+    animation: none;
+  }
+}
